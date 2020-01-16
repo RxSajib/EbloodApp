@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhoneOTPLoginActivity">
+
+
+    <TextView
+        android:id="@+id/welcomr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="30sp"
+        android:text="Phone Verification"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/Images"
+        android:src="@drawable/phoneicon"
+        android:layout_below="@id/welcomr"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="200dp">
+    </ImageView>
+
+    <EditText
+        android:id="@+id/PhoneOTPCodeID"
+        android:layout_below="@id/Images"
+        android:layout_width="200dp"
+        android:padding="10dp"
+        android:hint="Code"
+        android:singleLine="true"
+        android:textSize="25dp"
+        android:background="@drawable/phone_code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+    </EditText>
+
+    <TextView
+        android:layout_marginBottom="18dp"
+        android:layout_above="@+id/PhoneOtpButtonID"
+        android:layout_width="wrap_content"
+        android:text="@string/sign"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <Button
+        android:id="@+id/PhoneOtpButtonID"
+        android:layout_alignParentBottom="true"
+        android:background="#4E69FF"
+        android:textAllCaps="false"
+        android:text="SetUp >>"
+        android:textSize="17sp"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
+
+</RelativeLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="5dp">
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECECEC">
+
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/DonarProfileimageID"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/defaultimage">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+
+                <RelativeLayout
+                    android:id="@+id/sss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp">
+
+                    <ImageView
+                        android:id="@+id/LoveIconID"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/redlove"></ImageView>
+
+                    <TextView
+                        android:id="@+id/LikeCounterIDID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/LoveIconID"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="3dp"
+                        android:text="0 Like"
+                        android:textSize="15sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/DonarCurrentdateID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/LikeCounterIDID"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="1 Jun 2020"
+                        android:textSize="13sp"></TextView>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/ChatdonarImageID"
+                    android:layout_width="30dp"
+                    android:layout_below="@+id/sss"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/chaticonupdate"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="30dp">
+                </ImageView>
+
+
+                <RelativeLayout
+                    android:id="@+id/RoodLayoutID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/DonarProfileimageID"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/DonarUserNameID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="MR Sajib Roy"
+                        android:textSize="17sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/DonarBloodGroupID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/DonarUserNameID"
+                        android:text="AB+"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="17dp">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/Mobilenumbertext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/RoodLayoutID"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Mobile Number"
+                    android:textSize="12sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/DonarMobileNumberID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Mobilenumbertext"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="01771330378"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/Locationtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/DonarMobileNumberID"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Location"
+                    android:textSize="12sp">
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/DonarLocatinID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Locationtext"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Park Pakistan"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/DonarPostID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/DonarLocatinID"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="14sp">
+
+                </TextView>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

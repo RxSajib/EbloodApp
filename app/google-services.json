@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "448966508741",
+    "firebase_url": "https://bloodapp-d79ff.firebaseio.com",
+    "project_id": "bloodapp-d79ff",
+    "storage_bucket": "bloodapp-d79ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448966508741:android:090c404bbd98e66fe5b0ac",
+        "android_client_info": {
+          "package_name": "com.blood.emirateslifedonation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448966508741-k24075pkutu15uglvvlbsg97iudq3nvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blood.emirateslifedonation",
+            "certificate_hash": "edf9e04f0f9fe9c04ef54b05a5d34e8a111ac363"
+          }
+        },
+        {
+          "client_id": "448966508741-66d4n4ud112kd7q5209uvlhs4i44hg5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFIa_N1o3tqPTC_QqWLXPLhtG9kNQhlrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448966508741-66d4n4ud112kd7q5209uvlhs4i44hg5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

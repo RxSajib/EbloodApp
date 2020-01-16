@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StokeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/porfile_background"
+        android:layout_height="230dp">
+
+
+        <ImageView
+            android:id="@+id/BcakButtonID"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="35dp"
+            android:src="@drawable/back_icon"
+            android:layout_height="35dp">
+        </ImageView>
+
+
+        <RelativeLayout
+            android:id="@+id/TopLayout"
+            android:background="@drawable/sender_design"
+            android:layout_width="200dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/SS"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <ImageView
+                        android:id="@+id/Donaricon"
+                        android:layout_width="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/donor"
+                        android:layout_height="30dp">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/TotalDonorID"
+                        android:layout_toRightOf="@id/Donaricon"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="14sp"
+                        android:text="Total Donor :0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_below="@+id/SS"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/Recivericon"
+                        android:layout_width="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/teasttube"
+                        android:layout_height="30dp">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/TotalReciverID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/Recivericon"
+                        android:text="Total Request :0"
+                        android:textSize="14sp">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+
+        <LinearLayout
+            android:id="@+id/OneT"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="15dp"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:background="#FCFFEB"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:textSize="28dp"
+                        android:layout_margin="7dp"
+                        android:text="A+"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/AplusText"
+                        android:textSize="14dp"
+                        android:layout_margin="7dp"
+                        android:text="Total Bag 0"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+             <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                 android:layout_marginRight="7dp"
+                 app:cardCornerRadius="15dp"
+                 android:layout_marginLeft="7dp"
+                 android:elevation="2dp"
+                 android:layout_marginTop="7dp"
+                 android:layout_marginBottom="7dp"
+                android:layout_height="match_parent">
+
+                 <RelativeLayout
+                     android:background="#FFE9CF"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+
+
+                     <TextView
+                         android:textSize="28dp"
+                         android:layout_margin="7dp"
+                         android:text="A-"
+                         android:textColor="@android:color/black"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+                     <TextView
+                         android:id="@+id/Aminustext"
+                         android:textSize="14dp"
+                         android:layout_margin="7dp"
+                         android:text="Total Bag 0"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginBottom="7dp"
+                         android:layout_marginRight="7dp"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+
+
+                 </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/TwoD"
+            android:layout_below="@+id/OneT"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="15dp"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:background="#FFEBC5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:textSize="28dp"
+                        android:layout_margin="7dp"
+                        android:text="B+"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/bplustext"
+                        android:textSize="14dp"
+                        android:layout_margin="7dp"
+                        android:text="Total Bag 0"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+             <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                 android:layout_marginRight="7dp"
+                 app:cardCornerRadius="15dp"
+                 android:layout_marginLeft="7dp"
+                 android:elevation="2dp"
+                 android:layout_marginTop="7dp"
+                 android:layout_marginBottom="7dp"
+                android:layout_height="match_parent">
+
+                 <RelativeLayout
+                     android:background="#BFB9CA"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+
+
+                     <TextView
+                         android:textSize="28dp"
+                         android:layout_margin="7dp"
+                         android:text="B-"
+                         android:textColor="@android:color/black"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+                     <TextView
+                         android:id="@+id/bminustext"
+                         android:textSize="14dp"
+                         android:layout_margin="7dp"
+                         android:text="Total Bag 0"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginBottom="7dp"
+                         android:layout_marginRight="7dp"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+
+                 </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ThreeD"
+            android:layout_below="@+id/TwoD"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="15dp"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:background="#F5E0FF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textSize="28dp"
+                        android:layout_margin="7dp"
+                        android:text="O+"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/oplustext"
+                        android:textSize="14dp"
+                        android:layout_margin="7dp"
+                        android:text="Total Bag 0"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+             <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                 android:layout_marginRight="7dp"
+                 app:cardCornerRadius="15dp"
+                 android:layout_marginLeft="7dp"
+                 android:elevation="2dp"
+                 android:layout_marginTop="7dp"
+                 android:layout_marginBottom="7dp"
+                android:layout_height="match_parent">
+
+                 <RelativeLayout
+                     android:background="#C4D6D1"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+
+
+                     <TextView
+                         android:textSize="28dp"
+                         android:layout_margin="7dp"
+                         android:text="O-"
+                         android:textColor="@android:color/black"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+                     <TextView
+                         android:id="@+id/ominustext"
+                         android:textSize="14dp"
+                         android:layout_margin="7dp"
+                         android:text="Total Bag 0"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginBottom="7dp"
+                         android:layout_marginRight="7dp"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+
+
+                 </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/FFeD"
+            android:layout_below="@+id/ThreeD"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="15dp"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:background="#E7E7E7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:textSize="28dp"
+                        android:layout_margin="7dp"
+                        android:text="AB+"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/abplustext"
+                        android:textSize="14dp"
+                        android:layout_margin="7dp"
+                        android:text="Total Bag 0"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+             <androidx.cardview.widget.CardView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                 android:layout_marginRight="7dp"
+                 app:cardCornerRadius="15dp"
+                 android:layout_marginLeft="7dp"
+                 android:elevation="2dp"
+                 android:layout_marginTop="7dp"
+                 android:layout_marginBottom="7dp"
+                android:layout_height="match_parent">
+
+                 <RelativeLayout
+                     android:background="#ECF7FF"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+
+
+                     <TextView
+                         android:textSize="28dp"
+                         android:layout_margin="7dp"
+                         android:text="AB-"
+                         android:textColor="@android:color/black"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+                     <TextView
+                         android:id="@+id/abminustext"
+                         android:textSize="14dp"
+                         android:layout_margin="7dp"
+                         android:text="Total Bag 0"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_marginBottom="7dp"
+                         android:layout_marginRight="7dp"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                     </TextView>
+
+                 </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedbackActivity">
+
+    <RelativeLayout
+        android:id="@+id/One"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <ImageView
+            android:background="@drawable/background"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_height="match_parent">
+
+        </ImageView>
+
+        <TextView
+            android:text="My Feedback"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@id/One"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+
+
+        <EditText
+            android:id="@+id/MobileNumberID"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:inputType="number"
+            android:hint="Enter Mobile Number"
+            android:background="@drawable/edittext_design"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/CommentsID"
+            android:layout_below="@+id/MobileNumberID"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:inputType="text"
+            android:padding="12dp"
+            android:hint="Enter Comments"
+            android:background="@drawable/edittext_design"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <TextView
+            android:id="@+id/ratingUsTextID"
+            android:layout_below="@+id/CommentsID"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:text="Rating Us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <com.hsalf.smilerating.SmileRating
+            android:layout_below="@+id/ratingUsTextID"
+            android:id="@+id/smile_rating"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+        </com.hsalf.smilerating.SmileRating>
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/SubmitButtonID"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white"
+        android:text="Submit"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/feedback_buttondesign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+</RelativeLayout>

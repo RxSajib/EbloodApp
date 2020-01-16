@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileActivity"
+    android:background="@android:color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/HeadLayoutID"
+        android:layout_width="match_parent"
+        android:layout_height="290dp">
+
+
+        <ImageView
+            android:id="@+id/ProfileBackButtonID"
+            android:layout_width="35dp"
+            android:elevation="1dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_icon"
+            android:layout_height="35dp">
+
+        </ImageView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_alignParentBottom="true"
+            android:elevation="3dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="20dp"
+            android:background="@drawable/blood_card_design"
+            android:layout_height="50dp">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:background="@drawable/blood_card_design"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/Blood"
+                        android:textSize="25sp"
+                        android:textColor="@android:color/white"
+                        android:text="Blood Group"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                    <RelativeLayout
+                        android:background="@drawable/bloodoval"
+                        android:layout_width="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="40dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:src="@drawable/bloodicon"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="25dp">
+
+                        </ImageView>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/porfile_background"
+        android:layout_height="250dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:id="@+id/EditProfileImageID"
+                android:src="@drawable/defaultimage"
+                android:layout_centerHorizontal="true"
+                android:layout_height="80dp">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/EditNameID"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:text="UserName Not Set"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:typeface="sans"
+                android:layout_below="@+id/EditProfileImageID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/EmailAdID"
+                android:layout_below="@id/EditNameID"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:text="Email Not Set"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/HeadLayoutID"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/AcounttextID"
+                android:textSize="28sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="20dp"
+                android:text="Account Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/UserNametext"
+                android:layout_below="@id/AcounttextID"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:text="UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <EditText
+                android:id="@+id/ProfileUserNameID"
+                android:layout_below="@id/UserNametext"
+                android:layout_marginTop="5dp"
+                android:background="#fff"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:hint="Your UserName"
+                android:layout_height="wrap_content">
+            </EditText>
+
+            <View
+                android:id="@+id/Vi"
+                android:layout_below="@id/ProfileUserNameID"
+                android:layout_marginTop="2dp"
+                android:background="#DBDBDB"
+                android:layout_width="match_parent"
+                android:layout_height="1dp">
+            </View>
+
+
+            <TextView
+                android:id="@+id/Emial"
+                android:layout_below="@id/Vi"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:text="Enail Address"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/ProfileEmailID"
+                android:layout_below="@id/Emial"
+                android:layout_marginTop="5dp"
+                android:background="#fff"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:hint="Your Email"
+                android:layout_height="wrap_content">
+            </EditText>
+
+
+            <View
+                android:id="@+id/Vsi"
+                android:layout_below="@id/ProfileEmailID"
+                android:layout_marginTop="2dp"
+                android:background="#DBDBDB"
+                android:layout_width="match_parent"
+                android:layout_height="1dp">
+            </View>
+
+
+            <Button
+                android:id="@+id/UpdateProfile"
+                android:layout_below="@+id/Vsi"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="180dp"
+                android:text="Update profile"
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:layout_marginBottom="7dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/profile_updatebutton"
+                android:layout_height="50dp">
+
+            </Button>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

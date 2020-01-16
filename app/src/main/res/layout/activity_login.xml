@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <TextView
+        android:id="@+id/welcomr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="30sp"
+        android:text="Welcome back"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/Images"
+        android:src="@drawable/loginlogo"
+        android:layout_below="@id/welcomr"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+    </ImageView>
+
+    <EditText
+        android:id="@+id/EmailAddressID"
+        android:layout_below="@id/Images"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/emailicon"
+        android:hint="Enter Email Address"
+        android:textColor="#456CB9"
+        android:layout_marginLeft="25dp"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:backgroundTint="#456CB9"
+        android:layout_height="wrap_content">
+    </EditText>
+
+    <EditText
+        android:id="@+id/LPasswordID"
+        android:layout_below="@id/EmailAddressID"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#456CB9"
+        android:gravity="center"
+        android:layout_marginLeft="25dp"
+        android:inputType="textPassword"
+        android:hint="Enter Password"
+        android:drawableLeft="@drawable/lockicon"
+        android:backgroundTint="#456CB9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </EditText>
+
+
+    <Button
+        android:id="@+id/LoginButtonID"
+        android:layout_width="200dp"
+        android:layout_above="@+id/PhoneLoginID"
+        android:layout_marginBottom="18dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:text="LogIn"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        android:background="@drawable/button_login"
+        android:layout_height="45dp">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/PhoneLoginID"
+        android:layout_above="@id/KKs"
+        android:layout_centerHorizontal="true"
+        android:text="Login Via OTP"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:textColor="#2059B8"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <RelativeLayout
+        android:id="@+id/KKs"
+        android:padding="7dp"
+        android:layout_above="@+id/ButtonLayouTID"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/FaceBookButtonID"
+            android:background="@drawable/facebook_shape"
+            android:layout_width="40dp"
+            android:gravity="center"
+            android:layout_marginRight="7dp"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:src="@drawable/facebooklogo"
+                android:layout_width="20dp"
+                android:layout_height="20dp">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/GoogleLoginButtonID"
+            android:layout_toRightOf="@+id/FaceBookButtonID"
+            android:background="@drawable/google_shape"
+            android:layout_width="40dp"
+            android:layout_marginRight="7dp"
+            android:gravity="center"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:src="@drawable/googlewhitw"
+                android:layout_width="20dp"
+                android:layout_height="20dp">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/ButtonLayouTID"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/ac"
+            android:textSize="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Don't have an account?"
+            />
+
+        <TextView
+            android:id="@+id/SignUpButtonID"
+            android:layout_toRightOf="@id/ac"
+            android:layout_marginLeft="10dp"
+            android:text="Sign Up"
+            android:layout_centerVertical="true"
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

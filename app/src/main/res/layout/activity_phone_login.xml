@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhoneLoginActivity">
+
+    <TextView
+        android:id="@+id/welcomr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="30sp"
+        android:text="Phone Login"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+
+
+    <ImageView
+        android:id="@+id/Images"
+        android:layout_below="@id/welcomr"
+        android:src="@drawable/phoneicon"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+    </ImageView>
+
+
+    <RelativeLayout
+        android:id="@+id/ddd"
+        android:layout_below="@+id/Images"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/PhoneNumberCodeID"
+            android:layout_width="wrap_content"
+            android:hint="+Code"
+            android:layout_marginRight="5dp"
+            android:inputType="text"
+            android:textColor="#456CB9"
+            android:backgroundTint="#456CB9"
+            android:padding="10dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content">
+        </EditText>
+
+         <EditText
+             android:id="@+id/PhoneNumberID"
+             android:inputType="number"
+             android:padding="10dp"
+             android:hint="Phone Number"
+             android:textColor="#456CB9"
+             android:backgroundTint="#456CB9"
+             android:textSize="25dp"
+             android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/PhoneNumberCodeID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+
+
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:layout_marginBottom="18dp"
+        android:layout_above="@+id/PhoneLoginButtonID"
+        android:layout_width="wrap_content"
+        android:text="@string/sign"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <Button
+        android:id="@+id/PhoneLoginButtonID"
+        android:layout_alignParentBottom="true"
+        android:background="#4E69FF"
+        android:textAllCaps="false"
+        android:text="Login >>"
+        android:textSize="17sp"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
+
+</RelativeLayout>

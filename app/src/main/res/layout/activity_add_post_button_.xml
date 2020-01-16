@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPostButton_Activity"
+    android:background="@android:color/white">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/AddPistToolbarID"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/AddPistToolbarID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:layout_marginTop="15dp"
+            android:id="@+id/CCone"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="15dp"
+            android:elevation="3dp"
+            android:layout_height="130dp">
+
+
+            <RelativeLayout
+                android:background="#55AC16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/BloodDonationPic"
+                    android:layout_width="100dp"
+                    android:src="@drawable/blood_donaticpic"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="100dp">
+
+                </ImageView>
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:layout_toRightOf="@id/BloodDonationPic"
+                    android:layout_centerVertical="true"
+                    android:textSize="35dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:text="Donate Blood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:id="@+id/CCtwo"
+            android:layout_below="@+id/CCone"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="15dp"
+            android:elevation="3dp"
+            android:layout_height="130dp">
+
+
+            <RelativeLayout
+                android:background="#A70404"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/KK"
+                    android:layout_width="100dp"
+                    android:src="@drawable/needblood"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="100dp">
+
+                </ImageView>
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_toRightOf="@id/KK"
+                    android:layout_centerVertical="true"
+                    android:textSize="35dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    android:text="Need Blood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
