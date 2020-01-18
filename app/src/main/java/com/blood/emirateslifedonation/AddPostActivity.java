@@ -75,6 +75,9 @@ public class AddPostActivity extends AppCompatActivity {
     private DatabaseReference DonarpostRef;
     private ProgressDialog Mprogress;
 
+    private DatabaseReference Muserdatabase;
+    private String CurrentLoginuserName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +89,21 @@ public class AddPostActivity extends AppCompatActivity {
         Mauth = FirebaseAuth.getInstance();
         CurrentUserID = Mauth.getCurrentUser().getUid();
         Mprofilestores = FirebaseStorage.getInstance().getReference();
+
+        Muserdatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        Muserdatabase.child(CurrentUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    CurrentLoginuserName = dataSnapshot.child("Name").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         DonarpostRef = FirebaseDatabase.getInstance().getReference().child("DonarPost");
         DonarpostRef.keepSynced(true);
@@ -457,6 +475,7 @@ public class AddPostActivity extends AppCompatActivity {
             donarmap.put("time", CurrentTime);
             donarmap.put("date", CurrentDate);
             donarmap.put("short", countpost);
+            donarmap.put("login_name", CurrentLoginuserName);
 
 
             DonarpostRef.push().updateChildren(donarmap)

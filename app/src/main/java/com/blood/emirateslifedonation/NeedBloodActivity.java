@@ -74,11 +74,14 @@ public class NeedBloodActivity extends AppCompatActivity {
     private String CurrentUserID;
     private Toolbar toolbar;
     private String gendertext = "";
+    private DatabaseReference MuserDatabase;
+    private String loginusernameget="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_need_blood);
+
 
 
 
@@ -395,6 +398,21 @@ public class NeedBloodActivity extends AppCompatActivity {
 
             }
         });
+
+        MuserDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        MuserDatabase.child(CurrentUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                     loginusernameget = dataSnapshot.child("Name").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
@@ -515,6 +533,8 @@ public class NeedBloodActivity extends AppCompatActivity {
             postmap.put("gender", gendertext);
             postmap.put("age", Agetext);
             postmap.put("counter", countpost);
+            postmap.put("loginusername", loginusernameget);
+
 
 
             Mpostdatabase.push().updateChildren(postmap)

@@ -23,7 +23,6 @@
         android:layout_height="150dp"
         android:layout_below="@+id/NeedBloodToolbarID"
         android:background="@color/colorPrimary">
-
     </RelativeLayout>
 
 

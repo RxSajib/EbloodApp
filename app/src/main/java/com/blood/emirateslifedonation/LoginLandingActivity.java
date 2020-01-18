@@ -33,7 +33,6 @@ public class LoginLandingActivity extends AppCompatActivity {
     private Button loginbutton;
     private Button signupbutton;
     private FirebaseAuth Mauth;
-
     private RelativeLayout facebookbutton;
     private RelativeLayout googlebutton;
     private GoogleSignInOptions gso;

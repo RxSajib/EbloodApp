@@ -160,6 +160,11 @@ public class DonerFragment extends Fragment {
                                         donarViewHolder.setLocationset(donar_locationget);
                                     }
 
+                                    if(dataSnapshot.hasChild("login_name")){
+                                        String login_nameget = dataSnapshot.child("login_name").getValue().toString();
+                                        donarViewHolder.setusernameset(login_nameget);
+                                    }
+
                                     donarViewHolder.Mview.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
@@ -282,6 +287,8 @@ public class DonerFragment extends Fragment {
         private String CurrentUserID;
 
         private ImageView chatimage;
+        private TextView loginname;
+
 
         public DonarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -301,6 +308,7 @@ public class DonerFragment extends Fragment {
 
             MLikeDatabase = FirebaseDatabase.getInstance().getReference().child("DonarLike");
             CurrentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            loginname = Mview.findViewById(R.id.CurrentUserNameBannerID);
 
             chatimage = Mview.findViewById(R.id.ChatdonarImageID);
         }

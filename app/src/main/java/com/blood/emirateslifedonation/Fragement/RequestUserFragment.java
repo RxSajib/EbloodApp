@@ -159,6 +159,11 @@ public class RequestUserFragment extends Fragment {
                                 requestHolder.setAgeset(ageget);
                             }
 
+                            if(dataSnapshot.hasChild("loginusername")){
+                                String loginusernameget =dataSnapshot.child("loginusername").getValue().toString();
+                                requestHolder.setcurrentnameset(loginusernameget);
+                            }
+
                             /// like add
                             requestHolder.likeimage.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -280,11 +285,13 @@ public class RequestUserFragment extends Fragment {
         private DatabaseReference Mlikedatabase;
         private int Likecounter;
         private String CurrentuseID;
+        private TextView currentusername;
 
         public RequestHolder(@NonNull View itemView) {
             super(itemView);
 
             Mview = itemView;
+            currentusername = Mview.findViewById(R.id.CurrentUserNameID);
             context = Mview.getContext();
             profileimage = Mview.findViewById(R.id.ReciverProfileImageID);
             username = Mview.findViewById(R.id.RequestusernameID);
@@ -343,6 +350,10 @@ public class RequestUserFragment extends Fragment {
 
                 }
             });
+        }
+
+        public void setcurrentnameset(String nam){
+            currentusername.setText(nam);
         }
 
         public void setUsernameset(String nam){
