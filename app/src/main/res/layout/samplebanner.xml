@@ -27,6 +27,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
                 android:textColor="#D33C3C"
+                android:elevation="1dp"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content">
             </TextView>
@@ -126,6 +127,18 @@
                         android:text="AB+"
                         android:textColor="@android:color/holo_red_light"
                         android:textSize="17dp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="12dp"
+                        android:text="(Donor info)"
+                        android:textSize="12sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/RequestBloodGroupID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                     </TextView>
 

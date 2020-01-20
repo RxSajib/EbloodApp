@@ -3,13 +3,13 @@ package com.blood.emirateslifedonation.HolderClass;
 public class donar_holder {
 
     String UID, date, donar_bloodgroup, donar_number, donar_profile_imageURL;
-    String donar_post, donar_name, donar_location;
+    String donar_post, donar_name, donar_location, login_name;
 
     public donar_holder(){
 
     }
 
-    public donar_holder(String UID, String date, String donar_bloodgroup, String donar_number, String donar_profile_imageURL, String donar_post, String donar_name, String donar_location) {
+    public donar_holder(String UID, String date, String donar_bloodgroup, String donar_number, String donar_profile_imageURL, String donar_post, String donar_name, String donar_location, String login_name) {
         this.UID = UID;
         this.date = date;
         this.donar_bloodgroup = donar_bloodgroup;
@@ -18,6 +18,7 @@ public class donar_holder {
         this.donar_post = donar_post;
         this.donar_name = donar_name;
         this.donar_location = donar_location;
+        this.login_name = login_name;
     }
 
     public String getUID() {
@@ -84,4 +85,11 @@ public class donar_holder {
         this.donar_location = donar_location;
     }
 
+    public String getLogin_name() {
+        return login_name;
+    }
+
+    public void setLogin_name(String login_name) {
+        this.login_name = login_name;
+    }
 }

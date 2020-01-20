@@ -131,6 +131,11 @@ public class DonerFragment extends Fragment {
                                         donarViewHolder.setdateset(dateget);
                                     }
 
+                                    if(dataSnapshot.hasChild("login_name")){
+                                        String login_nameget = dataSnapshot.child("login_name").getValue().toString();
+                                        donarViewHolder.setloginnameset(login_nameget);
+                                    }
+
                                     if(dataSnapshot.hasChild("donar_bloodgroup")){
                                         String donar_bloodgroupget = dataSnapshot.child("donar_bloodgroup").getValue().toString();
                                         donarViewHolder.setbloodgoupset(donar_bloodgroupget);
@@ -327,6 +332,10 @@ public class DonerFragment extends Fragment {
 
                 }
             });
+        }
+
+        public void setloginnameset(String log){
+            loginname.setText(log);
         }
 
         public void setusernameset(String nam){
