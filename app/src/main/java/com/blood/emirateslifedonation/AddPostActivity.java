@@ -476,7 +476,7 @@ public class AddPostActivity extends AppCompatActivity {
             donarmap.put("date", CurrentDate);
             donarmap.put("short", countpost);
             donarmap.put("login_name", CurrentLoginuserName);
-
+            donarmap.put("search", CurrentLoginuserName.toLowerCase());
 
             DonarpostRef.push().updateChildren(donarmap)
                     .addOnCompleteListener(new OnCompleteListener() {

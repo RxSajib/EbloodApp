@@ -534,6 +534,7 @@ public class NeedBloodActivity extends AppCompatActivity {
             postmap.put("age", Agetext);
             postmap.put("counter", countpost);
             postmap.put("loginusername", loginusernameget);
+            postmap.put("search", loginusernameget.toLowerCase());
 
 
 

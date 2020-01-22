@@ -6,7 +6,23 @@
     tools:context=".Fragement.RequestUserFragment">
 
 
+
+
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SearchView
+            android:queryHint="Search by username"
+            android:id="@+id/RequesterSearchID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </SearchView>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/RequesterSearchID"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -43,6 +59,7 @@
 
 
     <RelativeLayout
+        android:layout_below="@+id/RequesterSearchID"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -57,4 +74,5 @@
 
     </RelativeLayout>
 
+    </RelativeLayout>
 </FrameLayout>

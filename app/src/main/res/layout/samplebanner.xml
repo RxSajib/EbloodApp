@@ -39,6 +39,8 @@
 
 
 
+
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/DonarProfileimageID"
                     android:layout_width="50dp"
@@ -88,6 +90,8 @@
 
                 </RelativeLayout>
 
+
+
                 <ImageView
                     android:id="@+id/ChatdonarImageID"
                     android:layout_width="30dp"
@@ -98,6 +102,56 @@
                     android:layout_alignParentRight="true"
                     android:layout_height="30dp">
                 </ImageView>
+
+
+
+                <RelativeLayout
+                    android:id="@+id/NotifactionLayoutID"
+                    android:layout_below="@+id/ChatdonarImageID"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="20dp"
+                    android:elevation="3dp"
+                    android:background="@drawable/notifaction_stoke"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp">
+
+
+                    <RelativeLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:id="@+id/ImageNotifaction"
+                            android:layout_width="15dp"
+                            android:src="@drawable/balliconwhite"
+                            android:layout_height="15dp">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/MessageCounterID"
+                            android:layout_below="@+id/ImageNotifaction"
+                            android:text="56"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@android:color/white"
+                            android:textSize="8sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+
+
 
 
                 <RelativeLayout

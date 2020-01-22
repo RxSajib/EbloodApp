@@ -1,6 +1,5 @@
 package com.blood.emirateslifedonation.Fragement;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,11 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.Contacts;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,9 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -60,6 +64,11 @@ public class DonerFragment extends Fragment {
     private AdView adView;
 
 
+    private DatabaseReference Notifaction;
+
+    private DatabaseReference MDonorpostdatabase;
+
+    private SearchView searchView;
 
     public DonerFragment() {
         // Required empty public constructor
@@ -68,12 +77,13 @@ public class DonerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Mdonarpostdatabase = FirebaseDatabase.getInstance().getReference().child("DonarPost");
         Mdonarpostdatabase.keepSynced(true);
 
-         firebaseqry = Mdonarpostdatabase.orderByChild("short");
+        firebaseqry = Mdonarpostdatabase.orderByChild("short");
+        MDonorpostdatabase = FirebaseDatabase.getInstance().getReference().child("DonarPost");
 
         MLikeRef = FirebaseDatabase.getInstance().getReference().child("DonarLike");
         MLikeRef.keepSynced(true);
@@ -82,6 +92,9 @@ public class DonerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_doner, container, false);
 
 
+        Notifaction = FirebaseDatabase.getInstance().getReference().child("Notifaction_Logo");
+
+        searchView = view.findViewById(R.id.SearchID);
 
 
         donarlayout = view.findViewById(R.id.DonorLayoutID);
@@ -90,20 +103,43 @@ public class DonerFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        displayalluser();
+
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                startScarching(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                startScarching(newText);
+                return false;
+            }
+        });
+
 
         return view;
     }
 
 
-    private void displayalluser(){
+    private void startScarching(final String sec){
+
+
+        String query = sec.toLowerCase();
+        final Query firebaseQry = Mdonarpostdatabase.orderByChild("search").startAt(query).endAt(query+"\uf8ff");
+
+
+
 
 
         FirebaseRecyclerAdapter<donar_holder, DonarViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<donar_holder, DonarViewHolder>(
                 donar_holder.class,
                 R.layout.samplebanner,
                 DonarViewHolder.class,
-                firebaseqry
+                firebaseQry
         ) {
             @Override
             protected void populateViewHolder(final DonarViewHolder donarViewHolder, final donar_holder donar_holder, int i) {
@@ -117,11 +153,61 @@ public class DonerFragment extends Fragment {
                                 donarViewHolder.setReadingLike(UID);
 
                                 if(dataSnapshot.exists()){
+
+
+
+                                    final String uidget = dataSnapshot.child("UID").getValue().toString();
+
+                                    Notifaction.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            if(dataSnapshot.exists()){
+                                                String reciverid = dataSnapshot.child("ReciverID").getValue().toString();
+
+                                                if(uidget.equals(reciverid)){
+
+                                                    String reciverUID = reciverid;
+
+                                                    MDonorpostdatabase.orderByChild("UID")
+                                                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                @Override
+                                                                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                                                    if(dataSnapshot.exists()){
+                                                                        dataSnapshot.getKey();
+                                                                        Log.d("User",dataSnapshot.getRef().toString());
+                                                                        Log.d("User",dataSnapshot.getValue().toString());
+
+                                                                    }
+                                                                }
+
+                                                                @Override
+                                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                                }
+                                                            });
+
+                                                }
+                                            }
+                                            else {
+                                                Toast.makeText(getContext(), "false", Toast.LENGTH_LONG).show();
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+
+
                                     donarlayout.setVisibility(View.GONE);
                                     if(dataSnapshot.hasChild("UID")){
                                         String UIDget = dataSnapshot.child("UID").getValue().toString();
                                         if(UIDget.equals(CurrentUserID)){
                                             donarViewHolder.chatimage.setVisibility(View.GONE);
+                                            donarViewHolder.notifactioniconlayout.setVisibility(View.GONE);
                                         }
 
                                     }
@@ -178,6 +264,243 @@ public class DonerFragment extends Fragment {
 
                                             if (userid.equals(CurrentUserID)) {
                                                 donarViewHolder.chatimage.setVisibility(View.GONE);
+                                                donarViewHolder.notifactioniconlayout.setVerticalGravity(View.GONE);
+                                            }
+                                            else {
+                                                donarViewHolder.chatimage.setVisibility(View.VISIBLE);
+                                                android.app.AlertDialog.Builder Mbuilder = new android.app.AlertDialog.Builder(getContext());
+                                                Mbuilder.setTitle("Select Options");
+
+                                                CharSequence charSequence[] = new CharSequence[]{
+                                                        "Send Message"
+                                                };
+
+                                                Mbuilder.setItems(charSequence, new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        if(which == 0){
+                                                            String uid = dataSnapshot.child("UID").getValue().toString();
+                                                            Intent intent = new Intent(getContext(), ChatActivity.class);
+                                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                            intent.putExtra("KEY", uid);
+                                                            startActivity(intent);
+                                                        }
+                                                    }
+                                                });
+
+                                                AlertDialog alertDialog = Mbuilder.create();
+                                                alertDialog.show();
+
+                                            }
+
+                                        }
+                                    });
+
+
+
+
+                                    donarViewHolder.likeicon.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+
+                                            interstitialAd = new InterstitialAd(getContext());
+                                            interstitialAd.setAdUnitId("ca-app-pub-3947412102662378/8621058376");
+                                            interstitialAd.loadAd(new AdRequest.Builder().build());
+
+                                            interstitialAd.setAdListener(new AdListener(){
+                                                @Override
+                                                public void onAdClosed() {
+                                                    super.onAdClosed();
+                                                }
+                                            });
+
+                                            LikeState = true;
+
+
+                                            MLikeRef.addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    if(LikeState.equals(true)){
+                                                        if(dataSnapshot.child(UID).hasChild(CurrentUserID)){
+                                                            MLikeRef.child(UID).child(CurrentUserID).removeValue();
+                                                            LikeState = false;
+                                                        }
+                                                        else {
+                                                            MLikeRef.child(UID).child(CurrentUserID).setValue(true);
+                                                            LikeState = false;
+                                                        }
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                }
+                                            });
+
+
+                                        }
+                                    });
+
+
+                                }
+                                else {
+                                    donarlayout.setVisibility(View.VISIBLE);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+            }
+        };
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+
+
+
+
+    }
+
+
+    @Override
+    public void onStart() {
+
+
+
+    FirebaseRecyclerAdapter<donar_holder, DonarViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<donar_holder, DonarViewHolder>(
+                donar_holder.class,
+                R.layout.samplebanner,
+                DonarViewHolder.class,
+                firebaseqry
+        ) {
+            @Override
+            protected void populateViewHolder(final DonarViewHolder donarViewHolder, final donar_holder donar_holder, int i) {
+
+                final String UID = getRef(i).getKey();
+                Mdonarpostdatabase.child(UID)
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(final DataSnapshot dataSnapshot) {
+
+                                donarViewHolder.setReadingLike(UID);
+
+                                if(dataSnapshot.exists()){
+
+
+
+                                    final String uidget = dataSnapshot.child("UID").getValue().toString();
+
+                                    Notifaction.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            if(dataSnapshot.exists()){
+                                                String reciverid = dataSnapshot.child("ReciverID").getValue().toString();
+
+                                                if(uidget.equals(reciverid)){
+
+                                                    String reciverUID = reciverid;
+
+                                                    MDonorpostdatabase.orderByChild("UID")
+                                                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                                            if(dataSnapshot.exists()){
+                                                                dataSnapshot.getKey();
+                                                                Log.d("User",dataSnapshot.getRef().toString());
+                                                                Log.d("User",dataSnapshot.getValue().toString());
+
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(DatabaseError databaseError) {
+
+                                                        }
+                                                    });
+
+                                                }
+                                            }
+                                            else {
+                                                Toast.makeText(getContext(), "false", Toast.LENGTH_LONG).show();
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+
+
+                                    donarlayout.setVisibility(View.GONE);
+                                    if(dataSnapshot.hasChild("UID")){
+                                        String UIDget = dataSnapshot.child("UID").getValue().toString();
+                                        if(UIDget.equals(CurrentUserID)){
+                                            donarViewHolder.chatimage.setVisibility(View.GONE);
+                                            donarViewHolder.notifactioniconlayout.setVisibility(View.GONE);
+                                        }
+
+                                    }
+
+                                    if(dataSnapshot.hasChild("date")){
+                                        String dateget = dataSnapshot.child("date").getValue().toString();
+                                        donarViewHolder.setdateset(dateget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("login_name")){
+                                        String login_nameget = dataSnapshot.child("login_name").getValue().toString();
+                                        donarViewHolder.setloginnameset(login_nameget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("donar_bloodgroup")){
+                                        String donar_bloodgroupget = dataSnapshot.child("donar_bloodgroup").getValue().toString();
+                                        donarViewHolder.setbloodgoupset(donar_bloodgroupget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("donar_number")){
+                                        String donar_numberget = dataSnapshot.child("donar_number").getValue().toString();
+                                        donarViewHolder.setPhonenumberset(donar_numberget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("donar_profile_imageURL")){
+                                        String donar_profile_imageURLget = dataSnapshot.child("donar_profile_imageURL").getValue().toString();
+                                        donarViewHolder.setprofileimageset(donar_profile_imageURLget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("donar_post")){
+                                        String donar_postget = dataSnapshot.child("donar_post").getValue().toString();
+                                        donarViewHolder.setDonarpostset(donar_postget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("donar_name")){
+                                        String donar_nameget = dataSnapshot.child("donar_name").getValue().toString();
+                                        donarViewHolder.setusernameset(donar_nameget);
+                                    }
+                                    if(dataSnapshot.hasChild("donar_location")){
+                                        String donar_locationget = dataSnapshot.child("donar_location").getValue().toString();
+                                        donarViewHolder.setLocationset(donar_locationget);
+                                    }
+
+                                    if(dataSnapshot.hasChild("login_name")){
+                                        String login_nameget = dataSnapshot.child("login_name").getValue().toString();
+                                        donarViewHolder.setusernameset(login_nameget);
+                                    }
+
+                                    donarViewHolder.Mview.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+
+                                            String userid = dataSnapshot.child("UID").getValue().toString();
+
+                                            if (userid.equals(CurrentUserID)) {
+                                                donarViewHolder.chatimage.setVisibility(View.GONE);
+                                                donarViewHolder.notifactioniconlayout.setVerticalGravity(View.GONE);
                                             }
                                             else {
                                                 donarViewHolder.chatimage.setVisibility(View.VISIBLE);
@@ -271,7 +594,7 @@ public class DonerFragment extends Fragment {
         };
 
         recyclerView.setAdapter(firebaseRecyclerAdapter);
-       // super.onStart();
+        super.onStart();
     }
 
     public static class DonarViewHolder extends RecyclerView.ViewHolder{
@@ -293,6 +616,8 @@ public class DonerFragment extends Fragment {
 
         private ImageView chatimage;
         private TextView loginname;
+
+        private RelativeLayout notifactioniconlayout;
 
 
         public DonarViewHolder(@NonNull View itemView) {
@@ -316,6 +641,8 @@ public class DonerFragment extends Fragment {
             loginname = Mview.findViewById(R.id.CurrentUserNameBannerID);
 
             chatimage = Mview.findViewById(R.id.ChatdonarImageID);
+
+            notifactioniconlayout = Mview.findViewById(R.id.NotifactionLayoutID);
         }
 
         public void setprofileimageset(String img){

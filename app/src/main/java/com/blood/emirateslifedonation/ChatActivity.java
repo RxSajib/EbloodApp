@@ -89,6 +89,7 @@ public class ChatActivity extends AppCompatActivity {
     private ImageView onlineimage;
     private TextView onlinetime;
     private APIservice mService;
+    private DatabaseReference MNotifactionLogo;
 
 
 
@@ -97,6 +98,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        MNotifactionLogo = FirebaseDatabase.getInstance().getReference().child("Notifaction_Logo");
         mService= Common.getFCMClient();
         onlineimage = findViewById(R.id.OnlineImage);
         onlinetime = findViewById(R.id.OnlineDate);
@@ -220,6 +222,7 @@ public class ChatActivity extends AppCompatActivity {
         if(requestCode==511 && resultCode == RESULT_OK){
             imageuri = data.getData();
             if(SendType.equals("image")){
+                setlogogdatabase();
                 StorageReference filepath = Mimagestore.child("send_image").child(imageuri.getLastPathSegment());
                 filepath.putFile(imageuri)
                         .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -292,6 +295,8 @@ public class ChatActivity extends AppCompatActivity {
                 });
             }
             else if(!SendType.equals("image")){
+
+                setlogogdatabase();
 
 
                 StorageReference filepath = Mimagestore.child("send_document").child(imageuri.getLastPathSegment());
@@ -443,8 +448,8 @@ public class ChatActivity extends AppCompatActivity {
                     String name =dataSnapshot.child("Name").getValue().toString();
 
 
-                    if(!name.isEmpty()){
 
+                    if(!name.isEmpty()){
 
                         // Log.i(TAG, "onDataChange: ");
 
@@ -484,6 +489,8 @@ public class ChatActivity extends AppCompatActivity {
                 String title= message.getText().toString();
 
 
+
+
               /*  HashMap<String,String> data=new HashMap<>();
                 data.put("title",title);
                 data.put("body",message);*/
@@ -497,7 +504,7 @@ public class ChatActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Myresponce> call, Response<Myresponce> response) {
 
-                        Log.i("STATUS", "onResponse: SUCCESS "  +  response.message());
+
 
                     }
 
@@ -576,6 +583,7 @@ public class ChatActivity extends AppCompatActivity {
         }
         else {
 
+            setlogogdatabase();
 
             String message_sender_ref = "Message/"+SenderID+"/"+ReciverID;
             String message_reciver_ref = "Message/"+ReciverID+"/"+SenderID;
@@ -633,6 +641,7 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
+            removeNitiiconData();
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -694,5 +703,38 @@ public class ChatActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    /// setnotifaction image
+    private void setlogogdatabase(){
+
+        Map childmap = new HashMap();
+        childmap.put("ReciverID", ReciverID);
+
+        MNotifactionLogo.updateChildren(childmap)
+                .addOnCompleteListener(new OnCompleteListener() {
+                    @Override
+                    public void onComplete(@NonNull Task task) {
+                        if(task.isSuccessful()){
+
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+    }
+    /// setnotifaction image
+
+
+    @Override
+    public void onBackPressed() {
+        removeNitiiconData();
+        super.onBackPressed();
+    }
+
+    private void removeNitiiconData(){
+        MNotifactionLogo.child(SenderID).removeValue();
     }
 }
